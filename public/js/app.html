@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div class="wrapper">
+
+            <div class="login-box">
+              <form action="/signupsubmit" id="signupForm" method="GET">
+                <h2>Sign up</h2>
+    
+                <div class="input-box">
+                  <input id="uname" name="uname" type="text" required>
+                  <label for="uname">userName</label>
+                </div>
+          
+                <div class="input-box">
+                  <input id="email" name="email" type="email" required>
+                  <label for="email">Email</label>
+                </div>
+                
+    
+                <div class="input-box">
+                  <input type="password" name="password" required id="pass">
+                  <label for="pass">Password</label>
+                </div>
+    
+                <div class="input-box">
+                    <input type="password" name="cpass" required id="cpass">
+                    <label for="cpass">Confirm Password</label>
+                </div>
+          
+                <div class="agree">
+                  <label><input type="checkbox" name="checkbox"> Agree to terms and services</label>
+                </div>
+          
+                <button type="submit" onclick="">Sign up</button>
+          
+                <div class="register-link">
+                  <p>Already have an account? <a href="#">Log in</a></p>
+                </div>
+              </form>
+            </div>
+          </div>
+</body>
+</html>
