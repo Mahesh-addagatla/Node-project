@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      * {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background:linear-gradient(rgb(238, 208, 159),rgb(226, 162, 79));
+  background-size: cover;
+}
+.wrapper {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  height:100vh;
+  width:100%;
+  background-size:cover;
+  background-position:center;
+}
+.login-box {
+  position: relative;
+  width: 400px;
+  height: 380px;
+  background-color: aliceblue;
+  border-radius: 15px;
+  border: 2px solid rgba(255,255,255,.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+h2 {
+  font-size:2em;
+  color:#161414;
+  text-align:center;
+}
+.input-box {
+  position:relative;
+  width:310px;
+  margin:30px 0;
+  border-bottom:1px solid #110f0f;
+}
+.input-box label {
+  position:absolute;
+  top:50%;
+  left:5px;
+  transform:translateY(-50%);
+  font-size:1em;
+  color:#100f0f;
+  pointer-events:none;
+  transition:.5s;
+}
+.input-box input:focus  ~ label,
+.input-box input:valid  ~ label {
+  top:-5px;
+}
+.input-box input {
+  width:100%;
+  height:50px;
+  background:transparent;
+  border:none;
+  outline:none;
+  font-size:1em;
+  color:#0e0d0d;
+  padding:0 35px 0 5px;
+}
+button {
+  width:100%;
+  height:40px;
+  background-color:#1a1818;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  font-size:1em;
+  color:#f3eded;
+  font-weight:500;
+}
+.register-link {
+  font-size:.9em;
+  color:#0b0a0a;
+  text-align:center;
+  margin:25px 0 10px;
+}
+.register-link p a {
+  color:#110e0e;
+  text-decoration:none;
+  font-weight:600;
+}
+.register-link p a:hover {
+  text-decoration:underline;
+}
+
+    </style>
+  </head>
+<body>
+    <div class="wrapper">
+
+        <div class="login-box">
+          <form action="/signinsubmit" id="signupForm" method="POST">
+            <h2>Sign in</h2>
+            <div class="input-box">
+                <input id="email" name="email" type="email" required>
+                <label for="email">Email</label>
+              </div>
+              
+              <div class="input-box">
+                <input type="password" name="password" required id="pass">
+                <label for="pass">Password</label>
+              </div>
+              <button type="submit" onclick="">Sign in</button>
+              <div class="register-link">
+                <p>Don't have an account? <a href="/signup">Sign up</a></p>
+              </div>
+            </form>
+        </div>
+      </div>
+</body>
+</html>

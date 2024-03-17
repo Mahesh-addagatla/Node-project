@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Search</title>
+    
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:linear-gradient(rgb(238, 208, 159),rgb(226, 162, 79));
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: orange;
+            font-weight: bolder;
+        }
+        h2{
+            text-align: center;
+            margin-bottom: 30px;
+            color: rgb(255, 123, 0);
+            font-weight: bolder;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color:orangered;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .recipe-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .instructions-link {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .instructions-link:hover {
+            text-decoration: underline;
+        }
+        .container a{
+            text-decoration: none;
+            font-size: x-large;
+            font-weight: bolder;
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Recipe Search</h1>
+        <h2>Know your taste</h2>
+        <form action="/search" method="POST">
+            <input type="text" name="query" placeholder="Search for recipes...">
+            <button type="submit">Search</button>
+        </form>
+
+        <% if (recipes && recipes.length > 0) { %>
+            <h2>Search Results</h2>
+            <ul>
+                <% recipes.forEach(recipe => { %>
+                    <li>
+                        <h3><%= recipe.strMeal %></h3>
+                        <% if (recipe.strMealThumb) { %>
+                            <img src="<%= recipe.strMealThumb %>" alt="<%= recipe.strMeal %>" class="recipe-image">
+                        <% } %>
+                        <% if (recipe.strInstructions) { %>
+                            <a href="/recipe/<%= recipe.idMeal %>">Instructions</a>
+                        <% } else { %>
+                            <p>Instructions not available.</p>
+                        <% } %>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No recipes found.</p>
+        <% } %>
+    </div>
+</body>
+</html>

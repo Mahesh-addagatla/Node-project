@@ -1,0 +1,93 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background:linear-gradient(rgb(238, 208, 159),rgb(226, 162, 79));
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.recipe-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    height: 300px;
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: orange;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+a:hover {
+    color: orangered;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Recipe Details</h1>
+    <div class="recipe-container">
+        <h2><%= recipe.strMeal %></h2>
+        <% if (recipe.strMealThumb) { %>
+            <img src="<%= recipe.strMealThumb %>" alt="<%= recipe.strMeal %>" style="max-width: 100%;">
+        <% } %>
+        <p><strong>Category:</strong> <%= recipe.strCategory %></p>
+        <p><strong>Area:</strong> <%= recipe.strArea %></p>
+        <p><strong>Ingredients:</strong></p>
+        <ul>
+            <% for (let i = 1; i <= 20; i++) { %>
+                <% const ingredient = recipe['strIngredient' + i]; %>
+                <% const measure = recipe['strMeasure' + i]; %>
+                <% if (ingredient && measure) { %>
+                    <li><%= measure %> <%= ingredient %></li>
+                <% } %>
+            <% } %>
+        </ul>
+        <p><strong>Instructions:</strong></p>
+        <p><%= recipe.strInstructions %></p>
+        <% if (getInstructions(recipe) !== "Instructions not available.") { %>
+            <p><%= getInstructions(recipe) %></p>
+        <% } %>
+        <p><a href="<%= recipe.strYoutube %>">Watch Video</a></p>
+        <p><a href="<%= recipe.strSource %>">Source</a></p>
+    </div>
+</body>
+</html>
