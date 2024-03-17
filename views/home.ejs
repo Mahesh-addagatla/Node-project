@@ -5,268 +5,225 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inconsolata:wght@200..900&family=Kanit&family=Play:wght@400;700&family=Poppins:wght@400;500&family=Protest+Guerrilla&family=Protest+Strike&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sixtyfour&family=Smooch+Sans:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inconsolata:wght@200..900&family=Kanit&family=Play:wght@400;700&family=Poppins:wght@400;500&family=Protest+Guerrilla&family=Protest+Strike&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sixtyfour&family=Smooch+Sans:wght@100..900&display=swap');
-img {
-    max-width: 100%;
-    height: auto;
-  }
-  .App {
-    min-height: 100vh;
-    width: 100%;
-    max-width: 100%;
-    margin: 0rem;
-  }
-  body {
-    max-width: 100%;
-    overflow-x: hidden;
-    background-color: #f6f6f6;
-  }
-  .home-banner-container {
-    position: relative;
-    display: flex;
-    padding-top: 3rem;
-    margin-right: 5%;
-  }
-  .home-bannerImage-container {
-    position: absolute;
-    top: -100px;
-    right: -170px;
-    z-index: -2;
-    height: 750px;
-    width:650px;
-    margin-right: 10%;
-    margin-top: 7%;
-  }
-  .home-image-section {
-    max-width: 600px;
-    flex: 1;
-  }
-  .home-text-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 3%;
-  }
-  .primary-heading {
-    font-family: 'Play', sans-serif;
-  font-style: normal;
-    font-size: clamp(3rem, 6vw, 5rem);
-    color: #4c4c4c;
-    /* line-height: 5rem; */
-    max-width: 600px;
-    margin-left: 15%;
-  }
-  .primary-text {
-    font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    font-size: clamp(1rem, 3vw, 1.5rem);
-    max-width: 500px;
-    color: #6a6a6a;
-    margin: 1.5rem 0rem;
-    margin-left: 15%;
-    
-  }
-  .secondary-button {
-    padding: 1rem 2.5rem;
-    background-color: #d19419;
-    outline: none;
-    border: none;
-    border-radius: 5rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    font-weight: 600;
-    color: white;
-    transition: 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 15%;
-  }
-  .secondary-button:hover {
-    background-color: #f0b82a;
-  }
-  .work-section-wrapper {
-    margin: 10rem 0;
-  }
-  .work-section-top p {
-    text-align: center;
-    max-width: 600px !important;
-  }
-  .work-section-top h1 {
-    max-width: 700px !important;
-  }
-  .work-section-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .work-section-info {
-    width: 290px;
-    min-height: 350px;
-    background-color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 1rem;
-    color: #505050;
-    margin: 1rem 2rem;
-  }
-  .work-section-info h2 {
-    font-family: 'Play', sans-serif;
-    margin: 1rem 0rem;
-  }
-  .work-section-bottom {
-    margin-top: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .work-section-info p {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    
-    font-family: "Poppins", sans-serif;
-  }
-  .primary-workheading {
-    font-weight: 700;
-    color: #1f87d6;
-    font-size: 1.15rem;
-  }
-  .primary-workmainheading {
-    font-size: clamp(2rem, 5vw, 4rem);
-    color: #4c4c4c;
-    font-family: 'Play', sans-serif;
-    /* line-height: 5rem; */
-    max-width: 600px;
-    /* margin-left: %; */
-  }
-  .primary-worktext {
-    font-size: clamp(1rem, 3vw, 1.5rem);
-    max-width: 500px;
-    font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    color: #6a6a6a;
-    margin: 1.5rem 0rem;
-    /* margin-left: 15%; */
-    
-  }
-  /* About */
-  .primary-aboutheading{
-    font-family: 'Play', sans-serif;
-  font-style: normal;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    color: #4c4c4c;
-    /* line-height: 5rem; */
-    max-width: 600px;
-    margin-left: 15%;
-  }
-  .about-section-container {
-    margin-top: 20rem;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .about-background-image-container {
-    position: absolute;
-    height: 750px;
-    width:650px;
-    margin-left: 3%;
-    z-index: -2;
-    margin-top: 130px;
-  }
-  .about-section-image-container {
-    flex: 0.9;
-    margin-right: 1rem;
-  }
-  .about-section-text-container {
-    flex: 1;
-    font-family: "Poppins", sans-serif;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-  }
-  .primary-subheading {
-    font-weight: 700;
-    color: #1f87d6;
-    font-size: 1.15rem;
-  }
-  .about-buttons-container {
-    
-    margin-top: 2rem;
-    display: flex;
-  }
-  .nav{
-    width: 100%;
-    height: 120px;
-    z-index: 1;
-    
-}
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inconsolata:wght@200..900&family=Kanit&family=Play:wght@400;700&family=Poppins:wght@400;500&family=Protest+Guerrilla&family=Protest+Strike&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sixtyfour&family=Smooch+Sans:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inconsolata:wght@200..900&family=Kanit&family=Play:wght@400;700&family=Poppins:wght@400;500&family=Protest+Guerrilla&family=Protest+Strike&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sixtyfour&family=Smooch+Sans:wght@100..900&display=swap');
+          .App {
+            min-height: 100vh;
+            width: 100%;
+            max-width: 100%;
+            margin: 0rem;
+          }
+          body {
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color: #f6f6f6;
+          }
+          .home-banner-container {
+            position: relative;
+            display: flex;
+            padding-top: 3rem;
+            margin-right: 5%;
+          }
+          .home-text-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 3%;
+          }
+          .primary-heading {
+            font-family: 'Play', sans-serif;
+          font-style: normal;
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: #4c4c4c;
+            max-width: 600px;
+            margin-left: 15%;
+          }
+          .primary-text {
+            font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            max-width: 500px;
+            color: #6a6a6a;
+            margin: 1.5rem 0rem;
+            margin-left: 15%;
+            
+          }
+          .secondary-button {
+            padding: 1rem 2.5rem;
+            background-color: #d19419;
+            outline: none;
+            border: none;
+            border-radius: 5rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: white;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15%;
+          }
+          .secondary-button:hover {
+            background-color: #f0b82a;
+          }
+          .work-section-wrapper {
+            margin: 10rem 0;
+          }
+          .work-section-top p {
+            text-align: center;
+            max-width: 600px !important;
+          }
+          .work-section-top h1 {
+            max-width: 700px !important;
+          }
+          .work-section-top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+          }
+          .work-section-info {
+            width: 290px;
+            min-height: 350px;
+            background-color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 1rem;
+            color: #505050;
+            margin: 1rem 2rem;
+          }
+          .work-section-info h2 {
+            font-family: 'Play', sans-serif;
+            margin: 1rem 0rem;
+          }
+          .work-section-info p {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            
+            font-family: "Poppins", sans-serif;
+          }
+          .primary-workheading {
+            font-weight: 700;
+            color: #1f87d6;
+            font-size: 1.15rem;
+          }
+          .primary-workmainheading {
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: #4c4c4c;
+            font-family: 'Play', sans-serif;
+            max-width: 600px;
+          }
+          .primary-worktext {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            max-width: 500px;
+            font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+            color: #6a6a6a;
+            margin: 1.5rem 0rem;
+            
+          }
+          /* About */
+          .primary-aboutheading{
+            font-family: 'Play', sans-serif;
+          font-style: normal;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: #4c4c4c;
+            max-width: 600px;
+            margin-left: 15%;
+          }
+          .about-section-container {
+            margin-top: 20rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .about-section-image-container {
+            flex: 0.9;
+            margin-right: 1rem;
+          }
+          .about-section-text-container {
+            flex: 1;
+            font-family: "Poppins", sans-serif;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+          }
+          .primary-subheading {
+            font-weight: 700;
+            color: #1f87d6;
+            font-size: 1.15rem;
+          }
+          .nav{
+            width: 100%;
+            height: 120px;
+            z-index: 1;
+            
+          }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
-  height: 60px;
-  padding: 10px 20px;
-  border-bottom: 2px solid black;
-}
+          .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+            height: 60px;
+            padding: 10px 20px;
+            border-bottom: 2px solid black;
+          }
 
-.logo {
-  margin: 0;
-}
+          .logo {
+            margin: 0;
+          }
 
-.nav-links {
-  list-style-type: none;
-  margin: 0px 20px 0px 20px;
-  padding: 0;
-}
+          .nav-links {
+            list-style-type: none;
+            margin: 0px 20px 0px 20px;
+            padding: 0;
+          }
 
-.nav-links li {
-  display: inline-block;
-  margin-right: 20px;
-}
+          .nav-links li {
+            display: inline-block;
+            margin-right: 20px;
+          }
 
-.nav-links li:last-child {
-  margin-right: 0;
-}
+          .nav-links li:last-child {
+            margin-right: 0;
+          }
 
-.nav-links li a {
-  color: rgb(51, 57, 137);
-  font-size: 1.5rem;
-  text-decoration: none;
-  font-weight: bolder;
-  transition: color 0.3s ease;
-  font-family: 'Play', sans-serif;
-}
+          .nav-links li a {
+            color: rgb(51, 57, 137);
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: bolder;
+            transition: color 0.3s ease;
+            font-family: 'Play', sans-serif;
+          }
 
-.nav-links li a:hover {
-  color: #ffc107;
-}
+          .nav-links li a:hover {
+            color: #ffc107;
+          }
 
-.content {
-  text-align: center;
-  margin-top: 50px;
-}
+          .content {
+            text-align: center;
+            margin-top: 50px;
+          }
 
-.container h1 {
-  margin-left: 40px;
-  color: rgb(51, 57, 137);
-  font-size: 1.5rem;
-  font-family: 'Play', sans-serif;
-}
+          .container h1 {
+            margin-left: 40px;
+            color: rgb(51, 57, 137);
+            font-size: 1.5rem;
+            font-family: 'Play', sans-serif;
+          }
     </style>
 </head>
 <body>
@@ -280,9 +237,10 @@ img {
         </div>
       </nav>
     <div class="home-container">
+      <img src="/public/second.png" alt="">
         <div class="home-banner-container">
           <div class="home-bannerImage-container">
-            <img src="#" alt="" />
+            <img src="/assets/second.png" alt="" />
           </div>
           <div class="home-text-section">
             <h1 class="primary-heading">
@@ -295,18 +253,12 @@ img {
               Get Started <span class="FiArrowRight"></span>
             </button>
           </div>
-          <div class="home-image-section">
-            <img src="#" alt="" />
-          </div>
         </div>
       </div>
       
       <div class="about-section-container">
-        <div class="about-background-image-container">
-          <img src="#" alt="" />
-        </div>
         <div class="about-section-image-container">
-          <!-- <img src={AboutBackgroundImage} alt="" /> -->
+          <img src='/assets/second.png' alt="" /> 
         </div>
         <div class="about-section-text-container">
           <p class="primary-subheading" style="margin-left:13%">Know About Us</p>
@@ -320,9 +272,6 @@ img {
             
            <br><b> Smart Search:</b> Easily find recipes by ingredients, cuisine, cooking time, or dietary restrictions. Say goodbye to recipe hunting and hello to quick and efficient meal planning.            <br />
           </p>
-          <div class="about-buttons-container">
-            <button class="secondary-button" >Learn More</button>
-          </div>
         </div>
       </div>
       
@@ -332,9 +281,6 @@ img {
           <h1 class="primary-workmainheading">How It Works</h1>
           <p class="primary-worktext">
             A recipe book web application functions as an online platform where users can register and authenticate to discover recipes. Users can explore a wide range of recipes through categories, search functionalities  based on dietary preferences. Each recipe page provides detailed information including ingredients, preparation steps, cooking times. Some advanced features may include recipe creation tools, shopping list generation based on selected recipes, and community interaction through forums or commenting. The application may also offer personalized recommendations and mobile accessibility for on-the-go access to recipes and features. Overall, it aims to provide users with a convenient and interactive way to discover and prepare delicious meals.          </p>
-        </div>
-        <div class="work-section-bottom">
-          <!-- Dynamic content will be added here using JavaScript -->
         </div>
       </div>
       
