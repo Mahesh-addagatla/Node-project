@@ -119,22 +119,35 @@ app.get('/signin', (req, res) => {
 })
 
 
-app.post('/signinsubmit',(req,res)=>{
-    const email=req.body.email;
-    const password=req.body.password;
+app.post('/signinsubmit', async (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
 
-    db.collection('users').where('email','==',email).where('password','==',password)
-    .get().then((docs)=>{
-        if(docs.size>0){
+    try {
+        // Check if a user with this email exists
+        const userSnapshot = await db.collection('users').where('email', '==', email).get();
+        if (userSnapshot.empty) {
+            return res.send("Login failed: User not found");
+        }
+
+        // Retrieve the user data
+        const userData = userSnapshot.docs[0].data();
+
+        // Compare hashed passwords
+        const isPasswordMatch = await bcrypt.compare(password, userData.password);
+
+        if (isPasswordMatch) {
+            // Passwords match, authentication successful
             res.render('index', { recipes: null, getInstructions: getInstructions });
+        } else {
+            // Passwords do not match
+            res.send("Login failed: Incorrect password");
         }
-        else{
-            res.send("Login failed");
-        }
-    })
-})
-
-
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
 
 
 app.listen(port, () => {
