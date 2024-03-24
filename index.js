@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
   res.render('home');
 })
 
+
 app.set("view engine","ejs");
 
 app.get('/signup', (req, res) => {
